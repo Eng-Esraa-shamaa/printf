@@ -21,6 +21,9 @@ int _puts(char *s)
 {
 	int i = 0;
 
+	if (s == NULL)
+		s = "(null)";
+
 	while (s[i] != '\0')
 	{
 		_putchar(s[i]);
