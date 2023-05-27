@@ -35,7 +35,7 @@ int _printf(const char *format, ...)
 					count += _print_int(list), i++;
 					break;
 				case '%':
-					_putchar('%'), i++, count++;
+					_putchar('%'), count++, i++;
 					break;
 				default:
 					_putchar(format[i]), count++;
