@@ -12,8 +12,10 @@ int _print_int(va_list list)
 	int i;
 
 	if (dec == 0)
+	{
 		_putchar('0');
-
+		return (1);
+	}
 	if (dec < 0)
 	{
 		_putchar('-');
