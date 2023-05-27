@@ -39,7 +39,9 @@ int _printf(const char *format, ...)
 			}
 		}
 		else
+		{
 			_putchar(format[i]), count++;
+		}
 	}
 	va_end(list);
 	return (count);
