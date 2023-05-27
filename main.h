@@ -1,0 +1,14 @@
+#ifndef PRINTF_FILE
+#define PRINTF_FILE
+
+#include <starg.h>
+#include <stdio.h>
+#include <stdlib.h>
+
+int _printf(const char *format, ...);
+int _putchar(char c);
+int _puts(char *s);
+int _print_int(va_list list);
+int count_digits(int num);
+
+#endif
