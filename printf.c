@@ -22,28 +22,28 @@ int _printf(const char *format, ...)
 		else
 		{
 			switch (format[i + 1])
-		{
-			case 'c':
-			_putchar(va_arg(list, int));
-			i++, count++;
-			break;
-		case 's':
-			st = va_arg(list, char *);
-			_puts(st), i++, count++;
-			break;
-		case 'd':
-case 'i':
-count += _print_int(list), i++;
-break;
-case '%':
-_putchar('%'), count++;
-break;
-default:
-count += 1;
-break;
-}
-}
-}
-via_end(list);
-return (count);
+			{
+				case 'c':
+					_putchar(va_arg(list, int));
+					i++, count++;
+					break;
+				case 's':
+					st = va_arg(list, char *);
+					puts(st), i++, count++;
+					break;
+				case 'd':
+				case 'i':
+					count += _print_int(list), i++;
+					break;
+				case '%':
+					_putchar('%'), count++;
+					break;
+				default:
+					count += 1;
+					break;
+			}
+		}
+	}
+	va_end(list);
+	return (count);
 }
