@@ -1,4 +1,4 @@
-#include"main.h"
+#include "main.h"
 #include<stdio.h>
 #include<stdarg.h>
 #include <stdlib.h>
@@ -10,7 +10,7 @@
  */
 int _putchar(char c)
 {
-return (write(1, &c, 1));
+	return (write(1, &c, 1));
 }
 /**
  *_puts - function to print string
