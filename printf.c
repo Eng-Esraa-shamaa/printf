@@ -29,7 +29,7 @@ int _printf(const char *format, ...)
 					break;
 				case 's':
 					st = va_arg(list, char *);
-					puts(st), i++, count++;
+					_puts(st), i++, count++;
 					break;
 				case 'd':
 				case 'i':
