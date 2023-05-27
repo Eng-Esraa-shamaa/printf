@@ -19,8 +19,9 @@ int _putchar(char c)
  */
 int _puts(char *s)
 {
-	int i = 0;
+int i = 0;
 
+<<<<<<< HEAD
 	if (s == NULL)
 		s = "(null)";
 
@@ -30,4 +31,16 @@ int _puts(char *s)
 		i++;
 	}
 	return (i);
+=======
+if (s == NULL)
+{
+s = "(null)";
+}
+while (s[i] != '\0')
+{
+_putchar(s[i]);
+i++;
+}
+return (i);
+>>>>>>> fc5501f4a69f4eec277c4670a1c200cc7f58ccb2
 }
