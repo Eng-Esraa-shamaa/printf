@@ -24,8 +24,7 @@ int _printf(const char *format, ...)
 			switch (format[i + 1])
 			{
 				case 'c':
-					_putchar(va_arg(list, int));
-					i++, count++;
+					_putchar(va_arg(list, int)), i++, count++;
 					break;
 				case 's':
 					st = va_arg(list, char *);
@@ -36,10 +35,10 @@ int _printf(const char *format, ...)
 					count += _print_int(list), i++;
 					break;
 				case '%':
-					_putchar('%'), count++;
+					_putchar('%'), i++, count++;
 					break;
 				default:
-					count += 1;
+					_putchar(format[i]), count++;
 					break;
 			}
 		}
