@@ -40,11 +40,11 @@ int _printf(const char *format, ...)
 						break;
 					case 'u':
 						count += print_unsigned(list);
+						break;
 					default:
 						count++;
-						break
+						break;
 				}
-		}
 		else
 			_putchar(format[i]), count++;
 	}
