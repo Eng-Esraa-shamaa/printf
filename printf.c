@@ -15,28 +15,35 @@ int _printf(const char *format, ...)
 	va_start(list, format);
 	for (i = 0; format[i] != '\0'; ++i)
 	{
-		if (format[i] == '%')
+		if (format[i] != '%')
+			_putchar(format[i]), count++;
+
+		else if (format[i + 1] == 'c' || format[i + 1] == 's' 
+				|| format[i + 1] == 'd' || format[i + 1] == 'i' 
+				|| format[i + 1] == 'u')
 		{
-			switch (format[i + 1])
-			{
-				case 'c':
-					_putchar(va_arg(list, int)), i++, count++;
-					break;
-				case 's':
-					st = va_arg(list, char *);
-					_puts(st), i++, count++;
-					break;
-				case 'd':
-				case 'i':
-					count += _print_int(list), i++;
-					break;
-				case '%':
-					_putchar('%'), count++, i++;
-					break;
-				default:
-					_putchar(format[i]), count++;
-					break;
-			}
+				switch (format[i + 1])
+				{
+					case 'c':
+						_putchar(va_arg(list, int)), i++, count++;
+						break;
+					case 's':
+						st = va_arg(list, char *);
+						_puts(st), i++, count++;
+						break;
+					case 'd':
+					case 'i':
+						count += _print_int(list), i++;
+						break;
+					case '%':
+						_putchar('%'), count++, i++;
+						break;
+					case 'u':
+						count += print_unsigned(list);
+					default:
+						count++;
+						break
+				}
 		}
 		else
 			_putchar(format[i]), count++;

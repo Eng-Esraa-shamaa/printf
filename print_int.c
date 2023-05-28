@@ -53,3 +53,38 @@ int count_digits(int num)
 	}
 	return (count);
 }
+/**
+ * print_unsigned -- prints unsigned integer
+ * @list: argument list
+ *
+ * Return: number printed
+*/
+int print_unsigned(va_list list)
+{
+    int div = 1, count = 0, digit;
+	int num_digits = 0;
+	int i;
+    unsigned int u = va_arg(list, unsigned int);
+
+	if (u == 0)
+		_putchar('0');
+
+	if (u < 0)
+	{
+		return (-1);
+	}
+	num_digits = count_digits(u);
+
+	for (i = 1; i < num_digits; i++)
+		div = div * 10;
+
+	while (div != 0)
+	{
+		digit = u / div;
+		_putchar(digit + '0');
+		u = u % div;
+		div = div / 10;
+		count++;
+	}
+	return (count);
+}
