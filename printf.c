@@ -15,8 +15,10 @@ int _printf(const char *format, ...)
 	va_start(list, format);
 	for (i = 0; format[i] != '\0'; ++i)
 	{
-		if (format[i] == '%')
-		{
+		if (format[i] != '%')
+			_putchar(format[i]), count++;
+
+		else {
 			switch (format[i + 1])
 			{
 				case 'c':
@@ -33,8 +35,8 @@ int _printf(const char *format, ...)
 				case '%':
 					_putchar('%'), count++, i++;
 					break;
-				case 'b':
-					print_binary(list), i++, count += 32;
+				case 'u':
+					count += print_unsigned(list);
 					break;
 				case 'u':
 					 count += print_unsigned(list), i++;
@@ -42,10 +44,8 @@ int _printf(const char *format, ...)
 				default:
 				_putchar(format[i]),count++;
 					break;
-			}
+				}
 		}
-		else
-			_putchar(format[i]), count++;
 	}
 	va_end(list);
 	return (count);
