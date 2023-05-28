@@ -11,6 +11,4 @@ int _puts(char *s);
 int _print_int(va_list list);
 int count_digits(int num);
 int print_unsigned(va_list list);
-int print_binary(va_list list);
-
 #endif
