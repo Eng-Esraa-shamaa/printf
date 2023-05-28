@@ -36,8 +36,11 @@ int _printf(const char *format, ...)
 				case 'b':
 					print_binary(list), i++, count += 32;
 					break;
+				case 'u':
+					 count += print_unsigned(list), i++;
+					 break;
 				default:
-					_putchar(format[i]), count++;
+				_putchar(format[i]),count++;
 					break;
 			}
 		}
