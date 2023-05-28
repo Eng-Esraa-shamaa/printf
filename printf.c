@@ -33,15 +33,16 @@ int _printf(const char *format, ...)
 				case '%':
 					_putchar('%'), count++, i++;
 					break;
+				case 'b':
+					print_binary(va_arg(list, unsigned int)), i++, count += 32;
+					break;
 				default:
 					_putchar(format[i]), count++;
 					break;
 			}
 		}
 		else
-		{
 			_putchar(format[i]), count++;
-		}
 	}
 	va_end(list);
 	return (count);
