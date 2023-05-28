@@ -61,18 +61,14 @@ int count_digits(int num)
 */
 int print_unsigned(va_list list)
 {
-    int div = 1, count = 0, digit;
+	int div = 1, count = 0, digit;
 	int num_digits = 0;
 	int i;
-    unsigned int u = va_arg(list, unsigned int);
+	unsigned int u = va_arg(list, unsigned int);
 
 	if (u == 0)
 		_putchar('0');
 
-	if (u < 0)
-	{
-		return (-1);
-	}
 	num_digits = count_digits(u);
 
 	for (i = 1; i < num_digits; i++)
