@@ -4,23 +4,30 @@
  *@num: the number to be printed in binary
  *Return: zero
  */
-void print_binary(unsigned int num)
+#include "main.h"
+int print_binary(va_list list)
 {
-	int bin[32];
-	int i, b;
+        unsigned int n, i;
+        unsigned int sum = 0;
+        unsigned y = 2147483648;
+        unsigned int b[32];
+        int count = 0;
 
-	if (num == 0)
-	{
-		_putchar('0');
-	}
-	for (i = 0; num > 0; i++)
-	{
-		bin[i] = num % 2;
-		num = num / 2;
-	}
-	for (i = i - 1; i >= 0; i--)
+        n = va_arg(list, unsigned int);
+        b[0] = n / y;
+        for (i = 1; i < 32; i++)
+        {
+                y =y / 2;
+                b[i] = (n / y) % 2;
+        }
+        for (i = 0; i < 32; i++)
 {
-		b = bin[i] + '0';
-_putchar(b);
-}
+                sum = sum + b[i];
+                if (sum || i == 31)
+                {
+                        _putchar(b[i] + '0');
+                        count++;
+                }
+        }
+        return (count);
 }

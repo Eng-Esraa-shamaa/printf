@@ -34,7 +34,7 @@ int _printf(const char *format, ...)
 					_putchar('%'), count++, i++;
 					break;
 				case 'b':
-					print_binary(va_arg(list, unsigned int)), i++, count += 32;
+					print_binary(list), i++, count += 32;
 					break;
 				default:
 					_putchar(format[i]), count++;
