@@ -34,44 +34,43 @@ return (count);
  */
 int print_helper(const char *format, specs funcs[], va_list list)
 {
-int i = 0, j = 0, count = 0;
-bool flag = false;
+	int i = 0, j = 0, count = 0;
+	bool flag = false;
 
-if (format[i] == '\0')
-{
-return (-1);
-}
-while (format[i])
-{
-if (format[i] == '%')
-{
-if (format[i + 1] == '\0')
-{
-return (-1);
-}
-for (; funcs[j].sym ; j++)
-{
-if (format[i + 1] == funcs[j].sym[0])
-{
-count += funcs[j].f(list), flag = true;
-break;
-}
-else if (format[i + 1] == '%')
-{
-count += _putchar('%'), flag = true;
-break;
-}
-}
-if (flag = false && format[i + 1] != ' ')
-{
-count += _putchar('%'), count += _putchar(format[i + 1]);
-}
-i += 2;
-}
-else
-{
-_putchar (format[i]), count++, i++;
-}
-}
-return (count);
+	if (format[i] == '\0')
+		return (-1);
+
+	while (format[i])
+	{
+		if (format[i] == '%')
+		{
+			if (format[i + 1] == '\0')
+				return (-1);
+
+			for (; funcs[j].sym ; j++)
+			{
+				if (format[i + 1] == funcs[j].sym[0])
+				{
+					count += funcs[j].f(list);
+					flag = true;
+					break;
+				}
+				else if (format[i + 1] == '%')
+				{
+					count += _putchar('%');
+					flag = true;
+					break;
+				}
+			}
+			if (flag == false && format[i + 1] != ' ')
+			{
+
+				count += _putchar('%'), count += _putchar(format[i + 1]);
+			}
+			i += 2;
+		}
+		else
+			_putchar (format[i]), count++, i++;
+	}
+	return (count);
 }
