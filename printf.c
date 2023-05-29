@@ -47,7 +47,7 @@ int print_helper(const char *format, specs funcs[], va_list list)
 			if (format[i + 1] == '\0')
 				return (-1);
 
-			for (; funcs[j].sym ; j++)
+			for (; funcs[j].sym != NULL; j++)
 			{
 				if (format[i + 1] == funcs[j].sym[0])
 				{
