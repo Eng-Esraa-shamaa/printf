@@ -10,6 +10,7 @@ int count;
 specs funcs[] = {
 {"c", print_char},
 {"s", print_string},
+{"%", print_percent},
 {"d", _print_int},
 {"i", _print_int},
 {"u", print_unsigned},

@@ -25,5 +25,6 @@ int _print_int(va_list list);
 int count_digits(int num);
 int print_unsigned(va_list list);
 int print_binary(va_list list);
+int print_percent(va_list list);
 int print_helper(const char *format, specs funcs[], va_list list);
 #endif

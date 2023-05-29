@@ -9,6 +9,16 @@ int _putchar(char c)
 	return (write(1, &c, 1));
 }
 /**
+ *print_percent - function used to print character
+ *@list: the percentage to be printed
+ *Return: the character
+ */
+int print_percent(__attribute__((unused))va_list list)
+{
+_putchar('%');
+return (1);
+}
+/**
  * print_char - Prints character
  * @list: list of arguments
  * Return: number of characters printed.
