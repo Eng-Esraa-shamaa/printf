@@ -5,7 +5,6 @@
 #include <stdarg.h>
 #include <stdbool.h>
 #include <stdio.h>
-
 /**
 * struct specify - defines a structure for symbols and functions
 *
@@ -14,8 +13,8 @@
 */
 struct specify
 {
-        char *sym;
-        int (*f)(va_list);
+char *sym;
+int (*f)(va_list);
 };
 typedef struct specify specs;
 int _printf(const char *format, ...);
