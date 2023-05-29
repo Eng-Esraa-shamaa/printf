@@ -44,7 +44,7 @@ int print_helper(const char *format, specs funcs[], va_list list)
 	if (format[i] == '\0')
 		return (-1);
 
-	for (; format[i] != '\0'; i++)
+	while (format[i])
 	{
 		if (format[i] == '%')
 		{
@@ -71,10 +71,10 @@ int print_helper(const char *format, specs funcs[], va_list list)
 
 				count += _putchar('%'), count += _putchar(format[i + 1]);
 			}
-			i++;
+			i += 2;
 		}
 		else
-			_putchar (format[i]), count++;
+			_putchar (format[i]), count++, i++;
 	}
 	return (count);
 }
