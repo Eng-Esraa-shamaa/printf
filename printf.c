@@ -18,15 +18,15 @@ int _printf(const char *format, ...)
 		if (format[i] != '%')
 			_putchar(format[i]), count++;
 
-		else {
+		else
+		{
 			switch (format[i + 1])
 			{
 				case 'c':
 					_putchar(va_arg(list, int)), i++, count++;
 					break;
 				case 's':
-					st = va_arg(list, char *);
-					_puts(st), i++, count++;
+					st = va_arg(list, char *), _puts(st), i++, count++;
 					break;
 				case 'd':
 				case 'i':
@@ -35,15 +35,15 @@ int _printf(const char *format, ...)
 				case '%':
 					_putchar('%'), count++, i++;
 					break;
-				case 'u':
-					count += print_unsigned(list);
+				case 'b':
+					print_binary(list), i++, count += 32;
 					break;
 				case 'u':
 					 count += print_unsigned(list), i++;
 					 break;
 				default:
 				_putchar(format[i]),count++;
-					break;
+				break;
 				}
 		}
 	}
