@@ -1,8 +1,4 @@
 #include "main.h"
-#include<stdio.h>
-#include<stdarg.h>
-#include <stdlib.h>
-#include<unistd.h>
 /**
  *_putchar - function used to print character
  *@c: the character to be printed
@@ -13,21 +9,28 @@ int _putchar(char c)
 	return (write(1, &c, 1));
 }
 /**
- *_puts - function to print string
- *@s: the string to be printed
- *Return: length of string
+ * print_char - Prints character
+ * @list: list of arguments
+ * Return: number of characters printed.
  */
-int _puts(char *s)
+int print_char(va_list list)
 {
-	int i = 0;
+return (_putchar(va_arg(list, int)));
+}
+/**
+ * print_string - Prints a string
+ * @list: list of arguments
+ * Return: number of characters printed.
+ */
+int print_string(va_list list)
+{
+int i = 0;
+char *s;
 
-	if (s == NULL)
-		s = "(null)";
-
-	while (s[i] != '\0')
-	{
-		_putchar(s[i]);
-		i++;
-	}
-	return (i);
+s = va_arg(list, char *);
+if (s == NULL)
+s = "(null)";
+for (; s[i] != '\0'; i++)
+_putchar(s[i]);
+return (i);
 }

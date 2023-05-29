@@ -1,52 +1,76 @@
-#include"main.h"
+#include "main.h"
 /**
- *_printf - function the same as printf function
- *@format: the format that will be checked
- *Return: the required output
+ * _printf - recives parameters to be printed
+ * @format: list
+ * Return: number of characters printed
  */
 int _printf(const char *format, ...)
 {
-	int i, count = 0;
-	char *st;
-	va_list list;
+int count;
+specs funcs[] = {
+{"c", print_char},
+{"s", print_string},
+{"d", _print_int},
+{"i", _print_int},
+{"u", print_unsigned},
+{NULL, NULL}
+};
+va_list list;
 
-	if (format == NULL || (format[0] == '%' && !format[1]))
-		return (-1);
-	va_start(list, format);
-	for (i = 0; format[i] != '\0'; ++i)
-	{
-		if (format[i] != '%')
-			_putchar(format[i]), count++;
+if (format == NULL)
+return (-1);
+va_start(list, format);
+count = print_helper(format, funcs, list);
+va_end(list);
+return (count);
+}
+/**
+ *print_helper - hel function used
+ *@format: style format
+ *@list: list
+ *@funcs: functions used
+ *Return: success
+ */
+int print_helper(const char *format, specs funcs[], va_list list)
+{
+int i = 0, j = 0, count = 0;
+bool flag = false;
 
-		else
-		{
-			switch (format[i + 1])
-			{
-				case 'c':
-					_putchar(va_arg(list, int)), i++, count++;
-					break;
-				case 's':
-					st = va_arg(list, char *), _puts(st), i++, count++;
-					break;
-				case 'd':
-				case 'i':
-					count += _print_int(list), i++;
-					break;
-				case '%':
-					_putchar('%'), count++, i++;
-					break;
-				case 'b':
-					print_binary(list), i++, count += 32;
-					break;
-				case 'u':
-					 count += print_unsigned(list), i++;
-					 break;
-				default:
-				_putchar(format[i]),count++;
-				break;
-				}
-		}
-	}
-	va_end(list);
-	return (count);
+if (format[i] == '\0')
+{
+return (-1);
+}
+while (format[i])
+{
+if (format[i] == '%')
+{
+if (format[i + 1] == '\0')
+{
+return (-1);
+}
+for (; funcs[j].sym ; j++)
+{
+if (format[i + 1] == funcs[j].sym[0])
+{
+count += funcs[j].f(list), flag = true;
+break;
+}
+else if (format[i + 1] == '%')
+{
+count += _putchar('%'), flag = true;
+break;
+}
+}
+if (flag == false && format[i + 1] != ' ')
+{
+count += _putchar('%'), count += _putchar(format[i + 1]);
+}
+i += 2;
+}
+else
+{
+_putchar (format[i]), count++, i++;
+}
+}
+return (count);
 }
