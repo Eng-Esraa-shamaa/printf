@@ -52,6 +52,8 @@ for (; funcs[j].sym ; j++)
 {
 if (format[i + 1] == funcs[j].sym[0])
 {
+	if (funcs[j].f(list) == -1)
+		return (-1);
 count += funcs[j].f(list), flag = true;
 break;
 }
