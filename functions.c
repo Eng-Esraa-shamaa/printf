@@ -42,5 +42,5 @@ if (s == NULL)
 s = "(null)";
 for (; s[i] != '\0'; i++)
 _putchar(s[i]);
-return (i + 1);
+return (i);
 }
