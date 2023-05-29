@@ -14,6 +14,10 @@ specs funcs[] = {
 {"d", _print_int},
 {"i", _print_int},
 {"u", print_unsigned},
+{"b", print_binary},
+{"x", print_lowhex},
+{"X", print_uphex},
+{"o", print_octal},
 {NULL, NULL}
 };
 va_list list;
