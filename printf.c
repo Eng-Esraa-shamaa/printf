@@ -35,7 +35,6 @@ return (count);
 int print_helper(const char *format, specs funcs[], va_list list)
 {
 int i = 0, j = 0, count = 0;
-bool flag = false;
 
 if (format[i] == '\0')
 {
@@ -53,16 +52,16 @@ for (; funcs[j].sym ; j++)
 {
 if (format[i + 1] == funcs[j].sym[0])
 {
-count += funcs[j].f(list), flag = true;
+count += funcs[j].f(list);
 break;
 }
 else if (format[i + 1] == '%')
 {
-count += _putchar('%'), flag = true;
+count += _putchar('%');
 break;
 }
 }
-if (flag == false && format[i + 1] != ' ')
+if (funcs[j].sym == NULL && format[i + 1] != ' ')
 {
 count += _putchar('%'), count += _putchar(format[i + 1]);
 }
