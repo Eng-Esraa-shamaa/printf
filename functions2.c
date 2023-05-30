@@ -15,10 +15,6 @@ if (dec < 0)
 len = len + _putchar('-');
 num = dec * -1;
 }
-else if (dec == 0)
-{
-_putchar('0');
-}
 else
 {
 num = dec;
