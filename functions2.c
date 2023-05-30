@@ -58,14 +58,7 @@ int dec, rem, dev = 1, len = 0;
 unsigned int num;
 
 dec = va_arg(list, int);
-if (dec == 0)
-{
-_putchar('0');
-}
-else
-{
 num = dec;
-}
 while (num / dev > 9)
 dev = dev * 10;
 while (dev != 0)
