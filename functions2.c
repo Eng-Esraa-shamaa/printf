@@ -54,11 +54,11 @@ return (count);
 */
 int print_unsigned(va_list list)
 {
-int dec, rem, dev = 1, len = 0;
+int len = 0;
 unsigned int num;
+unsigned int dev = 1, rem;
 
-dec = va_arg(list, int);
-num = dec;
+num = va_arg(list, unsigned int);
 while (num / dev > 9)
 dev = dev * 10;
 while (dev != 0)
