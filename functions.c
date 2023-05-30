@@ -40,7 +40,7 @@ char *s;
 s = va_arg(list, char *);
 if (s == NULL)
 s = "(null)";
-for (; s[i] != '\0'; i++)
-_putchar(s[i]);
+while (s[i] != '\0')
+i += _putchar(s[i]);
 return (i);
 }
