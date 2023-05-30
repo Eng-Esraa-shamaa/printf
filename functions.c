@@ -41,6 +41,9 @@ s = va_arg(list, char *);
 if (s == NULL)
 s = "(null)";
 while (s[i] != '\0')
-i += _putchar(s[i]);
+{
+	_putchar(s[i]);
+	i++;
+}
 return (i);
 }
