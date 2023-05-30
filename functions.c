@@ -40,10 +40,11 @@ char *s;
 s = va_arg(list, char *);
 if (s == NULL)
 s = "(null)";
-while (s[i] != '\0')
+while (*s != '\0')
 {
-	_putchar(s[i]);
+	_putchar(*s);
 	i++;
+	s++;
 }
 return (i);
 }
