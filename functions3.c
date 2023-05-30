@@ -67,25 +67,33 @@ return (count);
  */
 int print_octal(va_list list)
 {
-int octal[32];
-int i, j;
-int count = 0;
+int count = 0, i;
+int *octal;
 unsigned int num;
+unsigned int n;
 
-num = va_arg(list, unsigned int);
-for (i = 0; num > 0; i++)
+	num = va_arg(list, unsigned int);
+octal = malloc(sizeof(int) * count);
+if (octal == NULL)
+return (-1);
+n = num;
+while (n / 8 != 0)
+{
+n /= 8;
+count++;
+}
+count++;
+i = 0;
+while (i < count)
 {
 octal[i] = num % 8;
-num = num / 8;
+num /= 8;
+i++;
 }
-if (i == 0)
+for (i = count - 1; i >= 0; i--)
 {
-count += _putchar('0');
+_putchar(octal[i] + '0');
 }
-j = i - 1;
-for (; j >= 0; j--)
-{
-count += _putchar(octal[j] + '0');
-}
-return (count);
+	free(octal);
+	return (count);
 }
