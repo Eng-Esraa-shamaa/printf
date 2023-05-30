@@ -67,8 +67,6 @@ return (count);
  */
 int print_octal(va_list list)
 {
-int print_octal(va_list list)
-{
 int octal[32];
 int i, j;
 int count = 0;
