@@ -6,34 +6,33 @@
  */
 int _print_int(va_list list)
 {
-int dec = va_arg(list, int);
-int div = 1, count = 0, digit;
-int num_digits = 0;
-int i;
+int dec, rem, dev = 1, len = 0;
+unsigned int num;
 
-if (dec == 0)
-{
-_putchar('0');
-return (1);
-}
+dec = va_arg(list, int);
 if (dec < 0)
 {
-_putchar('-');
-dec = dec * (-1);
-count++;
+len = len + _putchar('-');
+num = dec * -1;
 }
-num_digits = count_digits(dec);
-for (i = 1; i < num_digits; i++)
-div = div * 10;
-while (div != 0)
+else if (dec == 0)
 {
-digit = dec / div;
-_putchar(digit + '0');
-dec = dec % div;
-div = div / 10;
-count++;
+_putchar('0');
 }
-return (count);
+else
+{
+num = dec;
+}
+while (num / dev > 9)
+dev = dev * 10;
+while (dev != 0)
+{
+rem = num / dev;
+len += _putchar(rem + '0');
+num = num % dev;
+dev = dev / 10;
+}
+return (len);
 }
 /**
  * count_digits - used to count number of digits
