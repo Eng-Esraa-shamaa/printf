@@ -54,25 +54,28 @@ return (count);
 */
 int print_unsigned(va_list list)
 {
-int div = 1, count = 0, digit;
-int num_digits = 0;
-int i;
-unsigned int u = va_arg(list, unsigned int);
+int dec, rem, dev = 1, len = 0;
+unsigned int num;
 
-if (u == 0)
-_putchar('0');
-num_digits = count_digits(u);
-for (i = 1; i < num_digits; i++)
-div = div * 10;
-while (div != 0)
+dec = va_arg(list, int);
+if (dec == 0)
 {
-digit = u / div;
-_putchar(digit + '0');
-u = u % div;
-div = div / 10;
-count++;
+_putchar('0');
 }
-return (count);
+else
+{
+num = dec;
+}
+while (num / dev > 9)
+dev = dev * 10;
+while (dev != 0)
+{
+rem = num / dev;
+len += _putchar(rem + '0');
+num = num % dev;
+dev = dev / 10;
+}
+return (len);
 }
 /**
  *print_binary - function used to print binary
