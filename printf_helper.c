@@ -36,6 +36,11 @@ int print_helper(const char *format, specs funcs[], va_list list)
 			}
 			i += 2;
 		}
+		else if (format[i + 1] == '\0')
+		{
+			count += _putchar(format[i]);
+			i++;
+		}
 		else
 		{
 			count += _putchar(format[i]);
