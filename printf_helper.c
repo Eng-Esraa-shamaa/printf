@@ -38,7 +38,7 @@ int print_helper(const char *format, specs funcs[], va_list list)
 				count += _putchar('%');
 				count += _putchar(format[i + 1]);
 			}
-			i += 2
+			i += 2;
 		}
 		else
 		{
