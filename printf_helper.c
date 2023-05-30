@@ -8,10 +8,10 @@
  */
 int print_helper(const char *format, specs funcs[], va_list list)
 {
-	int i = 0, j = 0, count = 0;
-	bool flag = false;
+int i = 0, j = 0, count = 0;
+bool flag = false;
 
-	if (format[i] == '\0')
+if (format[i] == '\0')
 		return (-1);
 
 	while (format[i])
